@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --white: #fff;
+    --black: #000;
+    --grey-600: #3d6666;
+    --grey-550: #547878;
+    --grey-500: #5e7a7d;
+    --grey-400: #7f9d9f;
+    --grey-300: #9ebbbd;
+    --grey-200: #c5e4e7;
+    --grey-50: #f3f9fa;
+
+    --green-900: #00474b;
+    --green-800: #085c61;
+    --green-750: #0d686d;
+    --green-400: #26c2ae;
+    --green-200: #9fe8df;
+
+    --orange-400: #e17052;
+
+    --space-100: 0.8rem;
+    --space-200: 1.6rem;
+    --space-300: 2.4rem;
+    --space-400: 3.2rem;
+    --space-600: 4.8rem;
+    --space-1000: 8rem;
+    --space-1200: 9.6rem;
+    --space-1500: 12rem;
+    --space-1600: 12.8rem;
+
+    --ff-family: 'Space Mono', sans-serif;
+    --fs-1: 4.8rem;
+    --fs-2: 3.2rem;
+    --fs-3: 2.4rem;
+    --fs-4: 2rem;
+    --fs-5: 1.6rem;
+    --fs-6: 1.3rem;
+    --fw-bold: 700;
+
+    --lh-ex-loose: 7.1rem;
+    --lh-loose: 4.7remrem;
+    --lh-mid-loose: 3.6rem;
+    --lh-medium: 3rem;
+    --lh-tight: 2.4rem;
+    --lh-ex-tight: 1.9rem;
+
+    --ls-1: -1px;
+    --ls-2: -0.67px;
+
+}
+
+html {
+    font-size: 62.5%;
+}
