@@ -31,9 +31,17 @@ function setDisplay(element, data) {
 
 const form = document.querySelector('form')
 
-form.addEventListener('change', (e) => {
+form.addEventListener('input', (e) => {
     const bill = Number(document.getElementById('bill-amount').value)
-    const tipPercent = radios.find(isChecked).value / 100 //come back here for some error handling
+    let tipPercent //= radios.find(isChecked).value / 100 //come back here for some error handling
+    if (radios.find(isChecked).value === 'custom') {
+        tipPercent = prompt('Please enter a custom tip')
+        tipPercent = Number(input / 100)
+    } else if (!radios.find(isChecked)) {
+        alert('You must choose a valid option')
+    } else {
+        tipPercent = radios.find(isChecked).value / 100
+    }
     const numberOfPeople = Number(document.getElementById('number-of-people').value)
 
     resetDisplay(tipPerPersonDisplay)
