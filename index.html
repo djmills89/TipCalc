@@ -19,7 +19,7 @@
 
         <div class="bill">
           <p>Bill</p>
-          <input type="text" placeholder="0">
+          <input type="text" placeholder="0" id="bill-amount">
         </div>
 
         <div class="tip-amounts">
@@ -28,7 +28,7 @@
           <label for="tip-5">5%</label>
           <input type="radio" name="tip" id="tip-10" value="10">
           <label for="tip-10">10%</label>
-          <input type="radio" name="tip" id="tip-15" value="15">
+          <input type="radio" name="tip" id="tip-15" value="15" checked>
           <label for="tip-15">15%</label>
           <input type="radio" name="tip" id="tip-25" value="25">
           <label for="tip-25">25%</label>
@@ -40,7 +40,7 @@
 
         <div class="splitter">
           <p>Number of People</p>
-          <input type="text" placeholder="0">
+          <input type="text" placeholder="0" id="number-of-people">
         </div>
 
         <div class="totals__container">
@@ -48,13 +48,13 @@
             <p>Tip Amount</p>
             <p>/ person</p>
           </div>
-          <p>$0.00</p>
+          <p id="tip-per-person-display">$0.00</p>
           <div>
             <p>Total</p>
             <p>/ person</p>
           </div>
-          <p>$0.00</p>
-          <button type="reset">Reset</button>
+          <p id="total-per-person-display">$0.00</p>
+          <button type="reset" id="reset-button">Reset</button>
         </div>
 
       </form>
