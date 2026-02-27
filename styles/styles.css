@@ -195,7 +195,12 @@ form:has(input:placeholder-shown) button[type="reset"] {
     color: var(--green-800);
 }
 
-@media (min-width: 768px) {
+.input__label--custom {
+    background-color: var(--grey-50);
+    color: var(--grey-550);
+}
+
+@media (min-width: 600px) {
     main {
         display: flex;
         flex-direction: column;
