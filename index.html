@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="./styles/styles.css">
   
@@ -21,51 +24,51 @@
 
       <form action="">
 
-        <div class="bill">
-          <p class="input__label">Bill</p>
-          <div class="input__group">
-            <img src="./images/icon-dollar.svg" alt="Dollar Icon">
-            <input type="text" placeholder="0" id="bill-amount">
+        <div class="form__container">
+          <div class="bill">
+            <p class="input__label">Bill</p>
+            <div class="input__group">
+              <img src="./images/icon-dollar.svg" alt="Dollar Icon">
+              <input type="text" placeholder="0" id="bill-amount">
+            </div>
           </div>
-        </div>
-
-        <div class="tip-amounts">
-          <p class="input__label">Select Tip %</p>
-          <div class="radio__container">
-            <input type="radio" name="tip" id="tip-5" value="5">
-            <label for="tip-5">5%</label>
-            <input type="radio" name="tip" id="tip-10" value="10">
-            <label for="tip-10">10%</label>
-            <input type="radio" name="tip" id="tip-15" value="15" checked>
-            <label for="tip-15">15%</label>
-            <input type="radio" name="tip" id="tip-25" value="25">
-            <label for="tip-25">25%</label>
-            <input type="radio" name="tip" id="tip-50" value="50">
-            <label for="tip-50">50%</label>
-            <input type="radio" name="tip" id="tip-custom" value="custom">
-            <label for="tip-custom">Custom</label>
+          <div class="tip-amounts">
+            <p class="input__label">Select Tip %</p>
+            <div class="radio__container">
+              <input type="radio" name="tip" id="tip-5" value="5">
+              <label for="tip-5">5%</label>
+              <input type="radio" name="tip" id="tip-10" value="10">
+              <label for="tip-10">10%</label>
+              <input type="radio" name="tip" id="tip-15" value="15" checked>
+              <label for="tip-15">15%</label>
+              <input type="radio" name="tip" id="tip-25" value="25">
+              <label for="tip-25">25%</label>
+              <input type="radio" name="tip" id="tip-50" value="50">
+              <label for="tip-50">50%</label>
+              <input type="radio" name="tip" id="tip-custom" value="custom">
+              <label for="tip-custom">Custom</label>
+            </div>
           </div>
-        </div>
-
-        <div class="splitter">
-          <p class="input__label">Number of People</p>
-          <div class="input__group">
-            <img src="./images/icon-person.svg" alt="Person Icon">
-            <input type="text" placeholder="0" id="number-of-people">
+          <div class="splitter">
+            <p class="input__label">Number of People</p>
+            <div class="input__group">
+              <img src="./images/icon-person.svg" alt="Person Icon">
+              <input type="text" placeholder="0" id="number-of-people">
+            </div>
           </div>
         </div>
 
         <div class="totals__container">
           <div>
             <p class="display__label">Tip Amount</p>
-            <p>/ person</p>
+            <p class="display__color--grey">/ person</p>
           </div>
 
           <p id="tip-per-person-display" class="display__total">$0.00</p>
 
           <div>
             <p class="display__label">Total</p>
-            <p>/ person</p>
+            <p class="display__color--grey">/ person</p>
           </div>
 
           <p id="total-per-person-display" class="display__total">$0.00</p>

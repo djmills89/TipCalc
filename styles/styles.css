@@ -108,7 +108,8 @@ label {
     color: var(--white);
     padding-inline: var(--space-200);
     padding-block: var(--space-100);
-    border-radius: 0.5rem;
+    border-radius: 0.5rem; 
+    cursor: pointer;
 }
 
 .radio__container {
@@ -123,6 +124,7 @@ input[type="text"] {
     font-size: var(--fs-3);
     line-height: var(--lh-mid-loose);
     background-color: var(--grey-50);
+    color: var(--green-900);
 }
 
 input::placeholder {
@@ -132,12 +134,20 @@ input::placeholder {
 
 .input__group {
     display: flex;
-    justify-content: center;
     align-items: center;
     background-color: var(--grey-50);
     padding-block: var(--space-100);
     padding-inline: var(--space-400);
     border-radius: 0.5rem;
+}
+
+.input__group img {
+    justify-self: flex-start;
+}
+
+.input__group input {
+    width: 100%;
+    margin-inline-start: auto;
 }
 
 .bill, .splitter, .tip-amounts {
@@ -162,7 +172,9 @@ input::placeholder {
 }
 
 button[type="reset"] {
-    background-color: var(--green-750);
+    font-family: var(--ff-family);
+    font-weight: var(--fw-bold);
+    background-color: var(--green-400);
     grid-column: span 2;
     border: none;
     border-radius: 1rem;
@@ -170,5 +182,48 @@ button[type="reset"] {
     padding-block: var(--space-100);
     font-size: var(--fs-4);
     line-height: var(--lh-medium);
+    color: var(--green-900);
+    cursor: pointer;
+}
+
+.display__color--grey {
+    color: var(--grey-400);
+}
+
+form:has(input:placeholder-shown) button[type="reset"] {
+    background-color: var(--green-750);
     color: var(--green-800);
+}
+
+@media (min-width: 768px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-inline: var(--space-600);
+    }
+
+    section {
+        padding-block: var(--space-600);
+        padding-inline: var(--space-1000);
+        border-radius: 2rem;
+        max-width: 95rem;
+    }
+
+    .radio__container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1080px) {
+    form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-600);
+    }
+
+    section {
+        padding: var(--space-400);
+    }
 }
