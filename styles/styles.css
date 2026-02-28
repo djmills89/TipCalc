@@ -286,6 +286,10 @@ input:focus, input:active {
     background-color: var(--grey-200);
 }
 
+.radio__custom-button:focus, .radio__custom-button:active {
+    outline: 2px solid var(--green-400);
+}
+
 @media (min-width: 600px) {
     main {
         display: flex;
