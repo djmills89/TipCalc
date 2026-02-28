@@ -248,16 +248,12 @@ form:has(input:placeholder-shown) button[type="reset"] {
     outline: 2px solid var(--orange-400);
 }
 
-.error-modal {
-    outline: 2px solid var(--orange-400);
-    outline-offset: -2px;
-}
-
 .error-msg {
     color: var(--orange-400);
 }
 
 .error-msg-tip {
+    color: var(--orange-400);
     font-size: var(--fs-6);
     grid-column: span 2;
     justify-self: center;
@@ -273,6 +269,21 @@ input:focus, input:active {
 
 .input__group:has(input:focus), .input__group:has(input:active), .input__group:hover {
     outline: 2px solid var(--green-400);
+}
+
+.radio__custom-button {
+    border: none;
+    font-family: var(--ff-family);
+    font-size: var(--fs-3);
+    font-weight: var(--fw-bold);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    background-color: var(--grey-50);
+    color: var(--grey-550);
+}
+
+.radio__custom-button:hover {
+    background-color: var(--grey-200);
 }
 
 @media (min-width: 600px) {
