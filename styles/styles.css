@@ -200,6 +200,36 @@ form:has(input:placeholder-shown) button[type="reset"] {
     color: var(--grey-550);
 }
 
+.modal {
+    margin: auto;
+    padding: var(--space-200);
+    gap: var(--space-100);
+    border-radius: 0.5rem;
+    border-color: var(--green-900);
+}
+
+.modal button {
+    background-color: var(--green-900);
+    color: var(--white);
+    padding-inline: var(--space-200);
+    padding-block: var(--space-100);
+    border: none;
+    width: 100%;
+    font-family: var(--ff-family);
+    font-weight: var(--fw-bold);
+}
+
+.modal input {
+    padding-inline: var(--space-200);
+    font-family: var(--ff-family);
+    width: 100%;
+}
+
+.modal::backdrop {
+    background-color: rgba(20, 20, 20, 0.5);
+    backdrop-filter: blur(4px);
+}
+
 @media (min-width: 600px) {
     main {
         display: flex;

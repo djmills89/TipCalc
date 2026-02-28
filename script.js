@@ -1,6 +1,84 @@
-const radios = [...document.querySelectorAll('input[type="radio"]')]
-const tipPerPersonDisplay = document.getElementById('tip-per-person-display')
-const totalPerPersonDisplay = document.getElementById('total-per-person-display')
+
+
+
+function init() {
+    const radios = [...document.querySelectorAll('input[type="radio"]')]
+    const tipPerPersonDisplay = document.getElementById('tip-per-person-display')
+    const totalPerPersonDisplay = document.getElementById('total-per-person-display')
+    const customTipLabel = document.querySelector('.input__label--custom')
+    const tipModal = document.getElementById('tip-modal')
+    const modalBtn = document.getElementById('modal-button')
+    let customTipAmount = 0
+    let bill = Number(document.getElementById('bill-amount').value)
+    let tipPercent
+    let numberOfPeople = Number(document.getElementById('number-of-people').value)
+
+
+    tipModal.addEventListener('close', (e) => {
+            tipPercent = Number(tipModal.querySelector('input').value ) / 100
+            resetDisplay(tipPerPersonDisplay)
+            resetDisplay(totalPerPersonDisplay)
+
+            //calculates tip and bill split and stores the value
+            const tipAmount = calculateTip(bill, tipPercent)
+            const tipPerPerson = splitTip(tipAmount, numberOfPeople)
+            const totalPerPerson = splitBill(bill, numberOfPeople, tipPerPerson)
+
+            //sets the dom
+            setDisplay(tipPerPersonDisplay, tipPerPerson)
+            setDisplay(totalPerPersonDisplay, totalPerPerson)
+    })
+
+    const form = document.querySelector('form')
+
+    form.addEventListener('input', (e) => {
+        //reads the value of the bill element to use in calculations
+        bill = Number(document.getElementById('bill-amount').value)
+
+        //figures out the tip percent based on which radio is selected in the dom, if its custom, open the modal and grab input
+        //= radios.find(isChecked).value / 100 //come back here for some error handling
+        if (radios.find(isChecked).value === 'custom') {
+            tipModal.showModal()
+        } else if (!radios.find(isChecked)) {
+            alert('You must choose a valid option')
+        } else {
+            tipPercent = radios.find(isChecked).value / 100
+        }
+
+        //reads the value of the number of people to split bill buy for use in calculations
+        numberOfPeople = Number(document.getElementById('number-of-people').value)
+
+        //clears the dom
+        resetDisplay(tipPerPersonDisplay)
+        resetDisplay(totalPerPersonDisplay)
+
+        //calculates tip and bill split and stores the value
+        const tipAmount = calculateTip(bill, tipPercent)
+        const tipPerPerson = splitTip(tipAmount, numberOfPeople)
+        const totalPerPerson = splitBill(bill, numberOfPeople, tipPerPerson)
+
+        //sets the dom
+        setDisplay(tipPerPersonDisplay, tipPerPerson)
+        setDisplay(totalPerPersonDisplay, totalPerPerson)
+
+    })
+
+    //grab button and reset dom back to default state
+    const resetBtn = document.getElementById('reset-button')
+
+    resetBtn.addEventListener('click', (e) => {
+        resetDisplay(tipPerPersonDisplay)
+        resetDisplay(totalPerPersonDisplay)
+    })
+
+
+}
+
+
+init()
+
+
+
 
 function calculateTip(bill, tipPercent) {
     return bill * tipPercent
@@ -27,38 +105,3 @@ function resetDisplay(element) {
 function setDisplay(element, data) {
     element.textContent = `$${data.toFixed(2)}`
 }
-
-
-const form = document.querySelector('form')
-
-form.addEventListener('input', (e) => {
-    const bill = Number(document.getElementById('bill-amount').value)
-    let tipPercent //= radios.find(isChecked).value / 100 //come back here for some error handling
-    if (radios.find(isChecked).value === 'custom') {
-        tipPercent = prompt('Please enter a custom tip')
-        tipPercent = Number(input / 100)
-    } else if (!radios.find(isChecked)) {
-        alert('You must choose a valid option')
-    } else {
-        tipPercent = radios.find(isChecked).value / 100
-    }
-    const numberOfPeople = Number(document.getElementById('number-of-people').value)
-
-    resetDisplay(tipPerPersonDisplay)
-    resetDisplay(totalPerPersonDisplay)
-
-    const tipAmount = calculateTip(bill, tipPercent)
-    const tipPerPerson = splitTip(tipAmount, numberOfPeople)
-    const totalPerPerson = splitBill(bill, numberOfPeople, tipPerPerson)
-
-    setDisplay(tipPerPersonDisplay, tipPerPerson)
-    setDisplay(totalPerPersonDisplay, totalPerPerson)
-
-})
-
-const resetBtn = document.getElementById('reset-button')
-
-resetBtn.addEventListener('click', (e) => {
-    resetDisplay(tipPerPersonDisplay)
-    resetDisplay(totalPerPersonDisplay)
-})
