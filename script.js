@@ -7,14 +7,20 @@ function init() {
     const totalPerPersonDisplay = document.getElementById('total-per-person-display')
     const customTipLabel = document.querySelector('.input__label--custom')
     const tipModal = document.getElementById('tip-modal')
+    const tipModalForm = document.getElementById('tip-modal-form')
     const modalBtn = document.getElementById('modal-button')
-    let customTipAmount = 0
     let bill = Number(document.getElementById('bill-amount').value)
     let tipPercent
     let numberOfPeople = Number(document.getElementById('number-of-people').value)
-
+    
 
     tipModal.addEventListener('close', (e) => {
+        if (Number(tipModal.querySelector('input').value ) > 100 || Number(tipModal.querySelector('input').value ) < 1) {
+            document.querySelector('.error-msg-tip').classList.remove('hidden')
+            customTipLabel.classList.add('error')
+        } else {
+            document.querySelector('.error-msg-tip').classList.add('hidden')
+            customTipLabel.classList.remove('error')
             tipPercent = Number(tipModal.querySelector('input').value ) / 100
             resetDisplay(tipPerPersonDisplay)
             resetDisplay(totalPerPersonDisplay)
@@ -27,6 +33,8 @@ function init() {
             //sets the dom
             setDisplay(tipPerPersonDisplay, tipPerPerson)
             setDisplay(totalPerPersonDisplay, totalPerPerson)
+        }
+            
     })
 
     const form = document.querySelector('form')
@@ -37,7 +45,6 @@ function init() {
         bill = Number(document.getElementById('bill-amount').value)
 
         //figures out the tip percent based on which radio is selected in the dom, if its custom, open the modal and grab input
-        //= radios.find(isChecked).value / 100 //come back here for some error handling
         if (radios.find(isChecked).value === 'custom') {
             tipModal.showModal()
         } else if (!radios.find(isChecked)) {
