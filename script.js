@@ -32,6 +32,7 @@ function init() {
     const form = document.querySelector('form')
 
     form.addEventListener('input', (e) => {
+        
         //reads the value of the bill element to use in calculations
         bill = Number(document.getElementById('bill-amount').value)
 
@@ -47,7 +48,13 @@ function init() {
 
         //reads the value of the number of people to split bill buy for use in calculations
         numberOfPeople = Number(document.getElementById('number-of-people').value)
-
+        if (numberOfPeople === 0) {
+            document.querySelector('.input__group--splitter').classList.add('error')
+            document.querySelector('.error-msg').classList.remove('hidden')
+        } else {
+            document.querySelector('.input__group--splitter').classList.remove('error')
+            document.querySelector('.error-msg').classList.add('hidden')
+        }
         //clears the dom
         resetDisplay(tipPerPersonDisplay)
         resetDisplay(totalPerPersonDisplay)

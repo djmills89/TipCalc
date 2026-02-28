@@ -80,7 +80,7 @@ section {
     border-radius: 2rem 2rem 0 0;
 }
 
-.input__label, .display__label {
+.input__label, .display__label, .error-msg {
     font-size: var(--fs-5);
     line-height: var(--lh-tight);
 }
@@ -110,6 +110,10 @@ label {
     padding-block: var(--space-100);
     border-radius: 0.5rem; 
     cursor: pointer;
+}
+
+label:hover {
+    background-color: var(--green-400);
 }
 
 .radio__container {
@@ -186,6 +190,10 @@ button[type="reset"] {
     cursor: pointer;
 }
 
+button[type="reset"]:hover {
+    background-color: var(--green-200);
+}
+
 .display__color--grey {
     color: var(--grey-400);
 }
@@ -228,6 +236,32 @@ form:has(input:placeholder-shown) button[type="reset"] {
 .modal::backdrop {
     background-color: rgba(20, 20, 20, 0.5);
     backdrop-filter: blur(4px);
+}
+
+.splitter__label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.error {
+    outline: 2px solid var(--orange-400);
+}
+
+.error-msg {
+    color: var(--orange-400);
+}
+
+.hidden {
+    display: none;
+}
+
+input:focus, input:active {
+    outline: none;
+}
+
+.input__group:has(input:focus), .input__group:has(input:active), .input__group:hover {
+    outline: 2px solid var(--green-400);
 }
 
 @media (min-width: 600px) {
