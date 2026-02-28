@@ -50,8 +50,6 @@ function init() {
         bill = Number(document.getElementById('bill-amount').value)
 
         //figures out the tip percent based on which radio is selected in the dom, if its custom, open the modal and grab input
-        // if (radios.find(isChecked).value === 'custom') {
-        //     tipModal.showModal()
         if (!radios.find(isChecked)) {
             alert('You must choose a valid option')
         } else {
